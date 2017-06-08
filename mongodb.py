@@ -129,6 +129,9 @@ class MongoDB(object):
 			self.misses = index_counters['misses']
 
 		for mongo_db in self.mongo_db:
+
+			if mongo_db == "admin": continue
+			
 			db = con[mongo_db]
 			if self.mongo_user and self.mongo_password:
 				con[self.mongo_db[0]].authenticate(self.mongo_user, self.mongo_password)
